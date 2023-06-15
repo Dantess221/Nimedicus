@@ -205,7 +205,7 @@
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
+                            <Grid x:Name="ReceptGrid">
                                 <StackPanel>
                                     <TextBlock FontSize="18"
                                                HorizontalAlignment="Left"
@@ -286,6 +286,7 @@
                                              BorderThickness="0"
                                              HorizontalAlignment="Left"
                                              VerticalAlignment="Top"
+                                             x:Name="LisBoxDrugs"
                                              Padding="0"
                                              SelectionMode="Single">
                                         <ListBox.ItemContainerStyle>
@@ -298,10 +299,11 @@
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding}"
                                                            FontSize="18"
+                                                           Width="{Binding ActualWidth, ElementName=ReceptGrid, Converter={converters:NumericAdditionConverter}, ConverterParameter=-60 }"
                                                            HorizontalAlignment="Left"
                                                            VerticalAlignment="Top"
                                                            Foreground="#666666"
-                                                           Margin="30,3,0,0"
+                                                           Margin="30,5,0,10"
                                                            FontFamily="IrisUPC"
                                                            SnapsToDevicePixels="True"
                                                            UseLayoutRounding="True"

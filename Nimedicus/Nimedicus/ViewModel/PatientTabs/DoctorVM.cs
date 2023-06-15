@@ -275,12 +275,13 @@ namespace Nimedicus.ViewModel.PatientTabs
 
         private void SumbitPatient()
         {
-            new DatabaseManager().CreatePatient(PatientLogin,(Sex)SelectedSex,SelectedDate.Value, PatientName, PatientLastName, PatientMiddleName, PatientPhone, PatientAddress, PatientMail, CurrentUser.Login,PatientPassword,true);
-
-            if (MessageBox.Show("Пацієнт успішно додан!") == MessageBoxResult.OK)
+            if (new DatabaseManager().CreatePatient(PatientLogin, (Sex)SelectedSex, SelectedDate.Value, PatientName, PatientLastName, PatientMiddleName, PatientPhone, PatientAddress, PatientMail, CurrentUser.Login, PatientPassword, true))
             {
-                UpdatePatients();
-                Return();
+                if (MessageBox.Show("Пацієнт успішно додан!") == MessageBoxResult.OK)
+                {
+                    UpdatePatients();
+                    Return();
+                }
             }
         }
 

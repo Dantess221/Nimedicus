@@ -29,7 +29,7 @@ namespace Nimedicus.Model
             context = new DataContext();
         }
 
-        public void CreatePatient(string login, Sex sex, DateTime birthdayDate, string name, string lastName, string middleName, string phone, string address, string mail, string doctorLogin = null, string password = null, bool isUIConfirmNeeded = false)
+        public bool CreatePatient(string login, Sex sex, DateTime birthdayDate, string name, string lastName, string middleName, string phone, string address, string mail, string doctorLogin = null, string password = null, bool isUIConfirmNeeded = false)
         {
             // Проверка наличия уникального логина и электронной почты
             var existingUser = context.Patients.FirstOrDefault(u => u.Login == login || u.Mail == mail) as BaseUser;
@@ -47,9 +47,9 @@ namespace Nimedicus.Model
                 if (isUIConfirmNeeded)
                 {
                     if (MessageBox.Show("Пользователь с таким логином или электронной почтой уже существует.") == MessageBoxResult.OK)
-                        return;
+                        return false;
                 }
-                return;
+                return true;
             }
 
             var user = new Patient

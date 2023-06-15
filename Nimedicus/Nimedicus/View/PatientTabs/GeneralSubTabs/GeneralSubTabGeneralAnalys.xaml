@@ -34,6 +34,7 @@
                     <ControlTemplate TargetType="ListBoxItem">
                         <Border CornerRadius="8"
                                 Margin="6"
+                                Name="listBoxItemBorder"
                                 Background="{TemplateBinding Background}"
                                 BorderThickness="0">
                             <Border.Effect>
@@ -43,118 +44,11 @@
                                                   Opacity="0.22"
                                                   Color="Black" />
                             </Border.Effect>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Border Width="40"
-                                        Height="40"
-                                        Grid.Row="0"
-                                        VerticalAlignment="Top"
-                                        HorizontalAlignment="Right">
-                                    <ToggleButton KeyboardNavigation.IsTabStop="True"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"
-                                                  Width="40"
-                                                  Margin="0,0,6,0"
-                                                  BorderThickness="0"
-                                                  TextBlock.FontSize="35"
-                                                  VerticalContentAlignment="Center"
-                                                  HorizontalContentAlignment="Center"
-                                                  Height="40"
-                                                  ClickMode="Press"
-                                                  IsChecked="{Binding Path=IsSelected,
-                                                          RelativeSource={RelativeSource TemplatedParent},
-                                                          Mode=TwoWay}">
-                                        <ToggleButton.Style>
-                                            <Style TargetType="ToggleButton">
-                                                <Setter Property="Background"
-                                                        Value="Transparent" />
-                                                <Setter Property="BorderBrush"
-                                                        Value="Transparent" />
-                                                <Setter Property="Template">
-                                                    <Setter.Value>
-                                                        <ControlTemplate TargetType="ToggleButton">
-                                                            <Border Background="{TemplateBinding Background}"
-                                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                                    BorderThickness="{TemplateBinding BorderThickness}">
-                                                                <Grid>
-                                                                    <ContentPresenter HorizontalAlignment="Center"
-                                                                                      VerticalAlignment="Center" />
-                                                                </Grid>
-                                                            </Border>
-                                                        </ControlTemplate>
-                                                    </Setter.Value>
-                                                </Setter>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Path=IsSelected,
-                                                                     RelativeSource={RelativeSource TemplatedParent}}"
-                                                                 Value="False">
-                                                        <Setter Property="Content"
-                                                                Value="+" />
-                                                        <Setter Property="Background"
-                                                                Value="Transparent" />
 
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=IsSelected,
-                                                                     RelativeSource={RelativeSource TemplatedParent}}"
-                                                                 Value="True">
-                                                        <Setter Property="Content"
-                                                                Value="-" />
-                                                        <Setter Property="Background"
-                                                                Value="Transparent" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=IsMouseOver,
-                                                                     RelativeSource={RelativeSource TemplatedParent}}"
-                                                                 Value="False">
-                                                        <Setter Property="Background"
-                                                                Value="Transparent" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=IsMouseOver,
-                                                                     RelativeSource={RelativeSource TemplatedParent}}"
-                                                                 Value="True">
-                                                        <Setter Property="Background"
-                                                                Value="Transparent" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </ToggleButton.Style>
-                                    </ToggleButton>
-                                </Border>
-
-                                <StackPanel Grid.Row="0"
-                                            Grid.RowSpan="2"
-                                            Margin="10,0,0,0">
-                                    <ContentPresenter />
-                                </StackPanel>
-                            </Grid>
+                            <StackPanel Margin="10,0,0,0">
+                                <ContentPresenter />
+                            </StackPanel>
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected"
-                                     Value="True">
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="Height"
-                                                             From="100"
-                                                             To="180"
-                                                             Duration="0:0:0.3" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.EnterActions>
-                                <Trigger.ExitActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="Height"
-                                                             From="180"
-                                                             To="100"
-                                                             Duration="0:0:0.2" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.ExitActions>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -280,9 +174,10 @@
                 <RowDefinition Height="10" />
             </Grid.RowDefinitions>
             <Border Grid.Row="1"
-                    Height="{Binding ActualHeight, ElementName=ContentGrid,Converter={converters:NumericAdditionConverter}, ConverterParameter=-80}">
+                    Height="{Binding ActualHeight, ElementName=ContentGrid, Converter={converters:NumericAdditionConverter}, ConverterParameter=-90}">
                 <ListBox BorderThickness="0"
                          x:Name="AnalysListBox"
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                          SelectionMode="Single"
                          HorizontalAlignment="Center"
                          ItemsSource="{Binding CurrentUserAnalysData}"
@@ -303,10 +198,10 @@
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem"
                                BasedOn="{StaticResource AnimatedListBoxItemStyle}">
-                            <Setter Property="Height"
-                                    Value="100" />
                             <Setter Property="Width"
-                                    Value="{Binding ActualWidth, ElementName=ContentGrid,Converter={converters:NumericAdditionConverter}, ConverterParameter=-20, FallbackValue=0}" />
+                                    Value="{Binding ActualWidth, ElementName=ContentGrid, Converter={converters:NumericValueMultiplier}, ConverterParameter=0.635, FallbackValue=0}" />
+                            <Setter Property="MinWidth"
+                                    Value="540" />
                             <Setter Property="Background"
                                     Value="#FCFCFC" />
                         </Style>
@@ -345,7 +240,7 @@
                                             IsEnabled="{Binding AnalysFileBlobName, Converter={converters:ValueIsNullToBooleanConverter}, ConverterParameter='i'}"
                                             Command="{Binding DownloadFileCommand}"
                                             Content="Завантажити Аналізи"
-                                            Margin="0,34,30,0"
+                                            Margin="0,34,30,20"
                                             Width="280"
                                             Typography.Capitals="AllSmallCaps"
                                             Height="40"
