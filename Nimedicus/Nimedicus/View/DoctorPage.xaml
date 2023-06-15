@@ -445,12 +445,14 @@
                     <ColumnDefinition Width="{Binding ActualWidth, ElementName=ContentGrid, Converter={converters:NumericAdditionConverter}, ConverterParameter=-40}"/>
                 </Grid.ColumnDefinitions>
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              Visibility="{Binding DataContext.CurrentPatient, Converter={converters:ValueIsNotNullToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:DoctorPage}}"
                               Grid.Column="0"
                               Grid.Row="0">
                     <patienttabs:GeneralSubTabGeneral Patient="{Binding DataContext.CurrentPatient, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:DoctorPage}}" />
                 </ScrollViewer>
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center"
+                            Visibility="{Binding DataContext.CurrentPatient, Converter={converters:ValueIsNotNullToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:DoctorPage}}"
                             Grid.Row="1"
                             Margin="0,20,0,30"
                             Grid.Column="0">

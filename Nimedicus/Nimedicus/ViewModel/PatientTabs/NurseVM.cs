@@ -54,7 +54,7 @@ namespace Nimedicus.ViewModel.PatientTabs
             }
         }
 
-        public Patient CurrentPatient => SelectedPage == -1 ? null : Patients[SelectedPage];
+        public Patient CurrentPatient => (SelectedPage == -1 || Patients.Count < SelectedPage + 1) ? null : Patients[SelectedPage];
 
         private int _selectedPage;
         public int SelectedPage

@@ -72,7 +72,7 @@ namespace Nimedicus.ViewModel.PatientTabs
             }
         }
 
-        public Patient CurrentPatient => SelectedPage == -1? null : Patients[SelectedPage];
+        public Patient CurrentPatient => (SelectedPage == -1 || Patients.Count < SelectedPage + 1)? null : Patients[SelectedPage];
 
         private int _selectedPage;
         public int SelectedPage
@@ -279,9 +279,8 @@ namespace Nimedicus.ViewModel.PatientTabs
 
             if (MessageBox.Show("Пацієнт успішно додан!") == MessageBoxResult.OK)
             {
-                Return();
-
                 UpdatePatients();
+                Return();
             }
         }
 

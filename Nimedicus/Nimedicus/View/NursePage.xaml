@@ -417,6 +417,7 @@
               Panel.ZIndex="1"
               Margin="40,20"
               Name="ContentGrid"
+              Visibility="{Binding DataContext.CurrentPatient, Converter={converters:ValueIsNotNullToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:NursePage}}"
               Background="#FFFFFF">
             <Grid HorizontalAlignment="Center">
                 <Grid.RowDefinitions>

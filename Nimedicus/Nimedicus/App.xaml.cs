@@ -25,6 +25,13 @@ namespace Nimedicus
         protected override Window CreateShell()
         {
             m_Wnd = new MainWindow();
+
+            new DatabaseManager().CreateNurse("Nurse", Utils.Enums.Sex.Female, new DateTime(1988, 6, 4), "Валерія", "Шевчук", "Олександрівна", "+38063111111", "62333, Київська область, місто Київ, пров. Б. Грінченка, 20", "nurse@gmail.com", "Nurse");
+
+            new DatabaseManager().CreateDoctor("Doctor1", Utils.Enums.Sex.Male, new DateTime(1978, 2, 23), "Григорій", "Середа", "Михайлович", "+38063222222", "63740, Київська область, місто Київ, пров. Михайла Грушевського, 64", "doctor1@gmail.com", "Doctor1");
+
+            new DatabaseManager().CreateDoctor("Doctor2", Utils.Enums.Sex.Female, new DateTime(1984, 6, 13), "Марія", "Пономаренко", "Федорівна", "+38063333333", "18130, Київська область, місто Київ, вул. Львівська, 97", "doctor2@gmail.com", "Doctor2");
+
             return m_Wnd;
         }
     }

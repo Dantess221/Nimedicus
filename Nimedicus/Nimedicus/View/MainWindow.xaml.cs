@@ -26,7 +26,6 @@ namespace Nimedicus.View
         {
             InitializeComponent();
             frame.NavigationService.Navigate(new Login());
-            new DatabaseManager().CreateNurse("dd",Utils.Enums.Sex.Male,DateTime.Now, "Abic", "Babon", "Bubun", "+380dickson", "Abchihba street", "Dodoza@gigi.com", password: "dd");
         }
 
         public void OpenLoginPage()

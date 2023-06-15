@@ -24,7 +24,6 @@ namespace Nimedicus.View
         public Login()
         {
             InitializeComponent();
-            new DatabaseManager().CreatePatient("aa", Utils.Enums.Sex.Female, new DateTime(2001, 9, 13), "Наталія", "Ніколаєнко", "В'ячеславівна", "+38063000001", "мой адресс", "mail@mail.com", new DataContext().Doctors.First().Login, "aa");
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
