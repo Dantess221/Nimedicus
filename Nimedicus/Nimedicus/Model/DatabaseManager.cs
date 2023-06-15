@@ -49,7 +49,7 @@ namespace Nimedicus.Model
                     if (MessageBox.Show("Пользователь с таким логином или электронной почтой уже существует.") == MessageBoxResult.OK)
                         return false;
                 }
-                return true;
+                return false;
             }
 
             var user = new Patient
@@ -88,6 +88,8 @@ namespace Nimedicus.Model
             context.Patients.Add(user);
             context.Auths.Add(auth);
             context.SaveChanges();
+
+            return true;
         }
 
         public void DeletePatient(Patient patient)
