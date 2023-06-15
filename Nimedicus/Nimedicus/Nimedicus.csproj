@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8DF96664-189E-450B-9EE6-553E7E2C245F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Nimedicus</RootNamespace>
+    <AssemblyName>Nimedicus</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\BaseSecondaryWindow.cs" />
+    <Compile Include="Controls\ColoredButtons\BaseColoredButton.cs" />
+    <Compile Include="Controls\ColoredButtons\ColoredButton.xaml.cs">
+      <DependentUpon>ColoredButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColoredButtons\SVGButton.xaml.cs">
+      <DependentUpon>SVGButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DTMessageBox\DTMessageBox.cs" />
+    <Compile Include="Controls\PositionStateRememberingWindow.cs" />
+    <Compile Include="Controls\SVGControls\BaseRecolorableImage.cs" />
+    <Compile Include="Controls\SVGControls\RecolorableImage.xaml.cs">
+      <DependentUpon>RecolorableImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SVGControls\RecolorableSVG.xaml.cs">
+      <DependentUpon>RecolorableSVG.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SVGDoubleTextControl.xaml.cs">
+      <DependentUpon>SVGDoubleTextControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WaitDialog.xaml.cs">
+      <DependentUpon>WaitDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBaseDataContext.cs" />
+    <Compile Include="Model\DatabaseDataModels\AnalysData.cs" />
+    <Compile Include="Model\DatabaseDataModels\Auth.cs" />
+    <Compile Include="Model\DatabaseDataModels\BaseUser.cs" />
+    <Compile Include="Model\DatabaseDataModels\Doctor.cs" />
+    <Compile Include="Model\DatabaseDataModels\Event.cs" />
+    <Compile Include="Model\DatabaseDataModels\Note.cs" />
+    <Compile Include="Model\DatabaseDataModels\Nurse.cs" />
+    <Compile Include="Model\DatabaseDataModels\Patient.cs" />
+    <Compile Include="Model\DatabaseDataModels\ReceiptData.cs" />
+    <Compile Include="Model\DatabaseManager.cs" />
+    <Compile Include="Utils\AttachedBehaviours\ImageRecolor.cs" />
+    <Compile Include="Utils\Attributes\DoNotCacheViewAttribute.cs" />
+    <Compile Include="Utils\AzureStorageHelper.cs" />
+    <Compile Include="Utils\CachingGridRegionAdapter.cs" />
+    <Compile Include="Utils\Converters\UserFullNameConverter.cs" />
+    <Compile Include="Utils\Converters\NumberedStringConverter .cs" />
+    <Compile Include="Utils\Converters\ReceiptDataConverter.cs" />
+    <Compile Include="Utils\Converters\AnalysDateConverter.cs" />
+    <Compile Include="Utils\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Utils\Converters\NumericAdditionConverter.cs" />
+    <Compile Include="Utils\Converters\RecolorableSVGDrawingIdResolveConverter.cs" />
+    <Compile Include="Utils\Enums\Sex.cs" />
+    <Compile Include="Utils\ExtensionMethods\EnumToItemsSource.cs" />
+    <Compile Include="Utils\ExtensionMethods\DrawingExtensions.cs" />
+    <Compile Include="Utils\ExtensionMethods\FreezableExtensions.cs" />
+    <Compile Include="Utils\Interfaces\INotifyPropertyChangedExtended.cs" />
+    <Compile Include="Utils\ObservableDictionary.cs" />
+    <Compile Include="Utils\PropertyChangedExtendedEventArgs.cs" />
+    <Compile Include="Utils\ThreadHelper.cs" />
+    <Compile Include="Utils\ZBindable\ZBindable.cs" />
+    <Compile Include="Utils\ZBindable\ZBindableBase.cs" />
+    <Compile Include="ViewModel\DatabaseDataModels\ReceiptData.cs" />
+    <Compile Include="ViewModel\DatabaseDataModels\Event.cs" />
+    <Compile Include="ViewModel\DatabaseDataModels\AnalysData.cs" />
+    <Compile Include="ViewModel\PatientTabs\BaseTab.cs" />
+    <Compile Include="ViewModel\PatientTabs\GeneralSubTabs\GeneralSubTabAnalysVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\GeneralSubTabs\GeneralSubTabScaldingVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\GeneralSubTabs\GeneralSubTabGeneralVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\DoctorVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\NurseVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\RecieptVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\HistoryVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\GeneralVM.cs" />
+    <Compile Include="ViewModel\PatientTabs\PatientTabsVM.cs" />
+    <Compile Include="View\NursePage.xaml.cs">
+      <DependentUpon>NursePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DoctorPage.xaml.cs">
+      <DependentUpon>DoctorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientPage.xaml.cs">
+      <DependentUpon>PatientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTabs\GeneralSubTabs\GeneralSubTabGeneralScalding.xaml.cs">
+      <DependentUpon>GeneralSubTabGeneralScalding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTabs\GeneralSubTabs\GeneralSubTabGeneralAnalys.xaml.cs">
+      <DependentUpon>GeneralSubTabGeneralAnalys.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTabs\GeneralSubTabs\GeneralSubTabGeneral.xaml.cs">
+      <DependentUpon>GeneralSubTabGeneral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTabs\History.xaml.cs">
+      <DependentUpon>History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTabs\Reciept.xaml.cs">
+      <DependentUpon>Reciept.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTabs\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\ColoredButtons\ColoredButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ColoredButtons\SVGButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SVGControls\RecolorableImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SVGControls\RecolorableSVG.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SVGDoubleTextControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WaitDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SVG\Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\Doctor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\Edit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\General.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\History.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\Mail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\Person.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\Phone.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\Point.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\Reciept.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SVG\SVGDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SVG\Exit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NursePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DoctorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientTabs\GeneralSubTabs\GeneralSubTabGeneralScalding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PatientTabs\GeneralSubTabs\GeneralSubTabGeneralAnalys.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PatientTabs\GeneralSubTabs\GeneralSubTabGeneral.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PatientTabs\History.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PatientTabs\Reciept.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PatientTabs\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="chilkat-x64">
+      <Version>9.5.0.94</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="iTextSharp">
+      <Version>5.5.13.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls">
+      <Version>6.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+      <Version>1.1.31</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLightLibs">
+      <Version>5.4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>8.1.97</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Unity">
+      <Version>8.1.97</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Wpf">
+      <Version>8.1.97</Version>
+    </PackageReference>
+    <PackageReference Include="SharpVectors">
+      <Version>1.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ObjectModel">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>4.5.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.2</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Abstractions">
+      <Version>5.11.7</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Container">
+      <Version>5.11.11</Version>
+    </PackageReference>
+    <PackageReference Include="WindowsAzure.Storage">
+      <Version>9.3.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

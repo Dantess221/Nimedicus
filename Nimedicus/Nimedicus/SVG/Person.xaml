@@ -1,0 +1,21 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<DrawingGroup x:Key="Person">
+    <DrawingGroup.Children>
+        <DrawingGroup>
+            <DrawingGroup.Children>
+                <GeometryDrawing >
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="#FFADADAD" Thickness="4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                    </GeometryDrawing.Pen>
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry FillRule="Nonzero" Figures="M29.2222,37C29.2222,29.4828 23.1283,23.3889 15.6111,23.3889 8.09391,23.3889 2,29.4828 2,37 M15.6111,17.5556C11.3156,17.5556 7.83333,14.0733 7.83333,9.77778 7.83333,5.48223 11.3156,2 15.6111,2 19.9066,2 23.3889,5.48223 23.3889,9.77778 23.3889,14.0733 19.9066,17.5556 15.6111,17.5556z" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup.Children>
+            <DrawingGroup.ClipGeometry>
+                <RectangleGeometry Rect="0,0,32,39" />
+            </DrawingGroup.ClipGeometry>
+        </DrawingGroup>
+    </DrawingGroup.Children>
+</DrawingGroup>
+</ResourceDictionary>

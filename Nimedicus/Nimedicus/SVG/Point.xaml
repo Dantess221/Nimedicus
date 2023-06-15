@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<DrawingGroup x:Key="Point">
+    <DrawingGroup.Children>
+        <DrawingGroup>
+            <DrawingGroup.Children>
+                <GeometryDrawing Brush="#FFADADAD" >
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry FillRule="Nonzero" Figures="M15,17.5C16.9891,17.5 18.8968,16.7098 20.3033,15.3033 21.7098,13.8968 22.5,11.9891 22.5,10 22.5,8.01088 21.7098,6.10322 20.3033,4.6967 18.8968,3.29018 16.9891,2.5 15,2.5 13.0109,2.5 11.1032,3.29018 9.6967,4.6967 8.29018,6.10322 7.5,8.01088 7.5,10 7.5,11.9891 8.29018,13.8968 9.6967,15.3033 11.1032,16.7098 13.0109,17.5 15,17.5z M15,20C12.3478,20 9.8043,18.9464 7.92893,17.0711 6.05357,15.1957 5,12.6522 5,10 5,7.34784 6.05357,4.8043 7.92893,2.92893 9.8043,1.05357 12.3478,0 15,0 17.6522,0 20.1957,1.05357 22.0711,2.92893 23.9464,4.8043 25,7.34784 25,10 25,12.6522 23.9464,15.1957 22.0711,17.0711 20.1957,18.9464 17.6522,20 15,20z" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FFADADAD" >
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry FillRule="Nonzero" Figures="M15,17.5C15.3315,17.5 15.6495,17.6317 15.8839,17.8661 16.1183,18.1005 16.25,18.4185 16.25,18.75L16.25,28.75C16.25,29.0815 16.1183,29.3995 15.8839,29.6339 15.6495,29.8683 15.3315,30 15,30 14.6685,30 14.3505,29.8683 14.1161,29.6339 13.8817,29.3995 13.75,29.0815 13.75,28.75L13.75,18.75C13.75,18.4185 13.8817,18.1005 14.1161,17.8661 14.3505,17.6317 14.6685,17.5 15,17.5z" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FFADADAD" >
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry FillRule="Nonzero" Figures="M10,22.855L10,25.3925C5.5375,26.1075 2.5,27.6525 2.5,28.75 2.5,30.2225 7.965,32.5 15,32.5 22.035,32.5 27.5,30.2225 27.5,28.75 27.5,27.65 24.4625,26.1075 20,25.3925L20,22.855C25.825,23.7125 30,26.03 30,28.75 30,32.2 23.285,35 15,35 6.715,35 0,32.2 0,28.75 0,26.0275 4.175,23.7125 10,22.855z" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup.Children>
+            <DrawingGroup.ClipGeometry>
+                <RectangleGeometry Rect="0,0,30,35" />
+            </DrawingGroup.ClipGeometry>
+        </DrawingGroup>
+    </DrawingGroup.Children>
+</DrawingGroup>
+</ResourceDictionary>

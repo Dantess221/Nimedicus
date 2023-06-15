@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="Nimedicus.Controls.SVGDoubleTextControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:svgcontrols="clr-namespace:Nimedicus.Controls.SVGControls"
+             xmlns:controls="clr-namespace:Nimedicus.Controls"
+             xmlns:converters="clr-namespace:Nimedicus.Utils.Converters"
+             Width="Auto"
+             Height="Auto">
+    <UserControl.Resources>
+
+        <Style x:Key="RoundedTextBoxStyle"
+               TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid x:Name="ContentGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <svgcontrols:RecolorableSVG Grid.Column="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Row="0"
+                                    Width="35"
+                                    SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True"
+                                    Height="35"
+                                    Margin="0,10,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    ColorShiftBrush="#6e6e6e"
+                                    IsColorShift="True"
+                                    Drawing="{Binding Drawing, RelativeSource={RelativeSource AncestorType={x:Type controls:SVGDoubleTextControl}}}" />
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1"
+                   Margin="10,0,0,0"
+                   FontSize="20"
+                   Foreground="#6e6e6e"
+                   FontFamily="IrisUPC"
+                   SnapsToDevicePixels="True"
+                   UseLayoutRounding="True"
+                   Text="{Binding UpperText, RelativeSource={RelativeSource AncestorType={x:Type controls:SVGDoubleTextControl}}}"
+                   TextTrimming="CharacterEllipsis"
+                   TextWrapping="Wrap"
+                   ToolTip="{Binding UpperText, RelativeSource={RelativeSource AncestorType={x:Type controls:SVGDoubleTextControl}}}"
+                   MaxWidth="{Binding ActualWidth, ElementName=ContentGrid, Converter={converters:NumericAdditionConverter}, ConverterParameter=-55}" />
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Margin="10,4,0,0"
+                   FontSize="26"
+                   SnapsToDevicePixels="True"
+                   UseLayoutRounding="True"
+                   Foreground="#2e2e2e"
+                   FontFamily="IrisUPC"
+                   Text="{Binding DownText, RelativeSource={RelativeSource AncestorType={x:Type controls:SVGDoubleTextControl}}}"
+                   TextTrimming="CharacterEllipsis"
+                   TextWrapping="Wrap"
+                   ToolTip="{Binding DownText, RelativeSource={RelativeSource AncestorType={x:Type controls:SVGDoubleTextControl}}}"
+                   MaxWidth="{Binding ActualWidth, ElementName=ContentGrid, Converter={converters:NumericAdditionConverter}, ConverterParameter=-55}"/>
+    </Grid>
+</UserControl>

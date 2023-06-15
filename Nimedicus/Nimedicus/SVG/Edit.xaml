@@ -1,0 +1,21 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<DrawingGroup x:Key="Edit">
+    <DrawingGroup.Children>
+        <DrawingGroup>
+            <DrawingGroup.Children>
+                <GeometryDrawing >
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="#FFFFFFFF" Thickness="3" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                    </GeometryDrawing.Pen>
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry FillRule="Nonzero" Figures="M2,31.2238L32,31.2238 M2,31.2238L2,23.7238 17,8.72385 M2,31.2238L9.5,31.2238 24.5,16.2238 M17,8.72385L22.3786,3.34512 22.382,3.34193C23.1223,2.60153 23.4931,2.23067 23.9206,2.09177 24.2973,1.96941 24.7029,1.96941 25.0796,2.09177 25.5067,2.23058 25.8772,2.601 26.6165,3.34035L29.8786,6.60248C30.6211,7.34502 30.9926,7.71645 31.1317,8.14457 31.2541,8.52115 31.2539,8.92679 31.1317,9.30338 30.9927,9.73118 30.6219,10.1021 29.8803,10.8435L29.8786,10.8451 24.5,16.2238 M17,8.72385L24.5,16.2238" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup.Children>
+            <DrawingGroup.ClipGeometry>
+                <RectangleGeometry Rect="0,0,34,33" />
+            </DrawingGroup.ClipGeometry>
+        </DrawingGroup>
+    </DrawingGroup.Children>
+</DrawingGroup>
+</ResourceDictionary>

@@ -1,0 +1,18 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<DrawingGroup x:Key="Calendar">
+    <DrawingGroup.Children>
+        <DrawingGroup>
+            <DrawingGroup.Children>
+                <GeometryDrawing Brush="#FFADADAD" >
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry FillRule="EvenOdd" Figures="M0,4.68265C0,3.38517,1.05457,2.33333,2.3598,2.33333L30.4527,2.33333C31.756,2.33333,32.8125,3.38323,32.8125,4.68265L32.8125,32.6507C32.8125,33.9482,31.7579,35,30.4527,35L2.3598,35C1.05652,35,0,33.9501,0,32.6507L0,4.68265z M2.34375,11.6667L30.4688,11.6667 30.4688,32.6667 2.34375,32.6667 2.34375,11.6667z M7.03125,1.16667C7.03125,0.522335,7.53289,0,8.2141,0L10.5359,0C11.1892,0,11.7188,0.541179,11.7188,1.16667L11.7188,2.33333 7.03125,2.33333 7.03125,1.16667z M21.0938,1.16667C21.0938,0.522335,21.5954,0,22.2766,0L24.5984,0C25.2517,0,25.7812,0.541179,25.7812,1.16667L25.7812,2.33333 21.0938,2.33333 21.0938,1.16667z" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup.Children>
+            <DrawingGroup.ClipGeometry>
+                <RectangleGeometry Rect="0,0,33,35" />
+            </DrawingGroup.ClipGeometry>
+        </DrawingGroup>
+    </DrawingGroup.Children>
+</DrawingGroup>
+</ResourceDictionary>

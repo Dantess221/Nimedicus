@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Nimedicus.View.PatientTabs.GeneralSubTabs.GeneralSubTabGeneral"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Nimedicus.View.PatientTabs.GeneralSubTabs"
+             xmlns:model="clr-namespace:Nimedicus.ViewModel.PatientTabs.GeneralSubTabs"
+             xmlns:coloredbuttons="clr-namespace:Nimedicus.Controls.ColoredButtons"
+             xmlns:svgcontrols="clr-namespace:Nimedicus.Controls.SVGControls"
+             xmlns:controls="clr-namespace:Nimedicus.Controls"
+             xmlns:converters="clr-namespace:Nimedicus.Utils.Converters"
+             d:DataContext="{d:DesignInstance model:GeneralSubTabGeneralVM}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Border BorderThickness="1,0,0,0">
+
+        <Grid Margin="0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical"
+                        Grid.Column="0">
+                <TextBlock Margin="0,10,0,20"
+                           FontSize="26"
+                           Foreground="#2e2e2e"
+                           FontFamily="IrisUPC"
+                           TextTrimming="CharacterEllipsis"
+                           TextWrapping="Wrap"
+                           Text="{Binding Patient, Converter={converters:UserFullNameConverter}, TargetNullValue='-Не задано-'}" />
+                <controls:SVGDoubleTextControl Drawing="{DynamicResource Person}"
+                                               Margin="20,0,0,10"
+                                               UpperText="Стать"
+                                               DownText="{Binding Patient.Sex, TargetNullValue='-Не задано-'}" />
+                <controls:SVGDoubleTextControl Drawing="{DynamicResource Calendar}"
+                                               Margin="20,0,0,10"
+                                               UpperText="Дата народження"
+                                               DownText="{Binding Patient.BirthdayDate, StringFormat='dd.MM.yyyy', TargetNullValue='-Не задано-'}" />
+                <controls:SVGDoubleTextControl Drawing="{DynamicResource Point}"
+                                               Margin="20,0,0,10"
+                                               UpperText="Адреса проживання"
+                                               DownText="{Binding Patient.Address, TargetNullValue='-Не задано-'}" />
+                <controls:SVGDoubleTextControl Drawing="{DynamicResource Phone}"
+                                               Margin="20,0,0,10"
+                                               UpperText="Мобільний телефон"
+                                               DownText="{Binding Patient.Phone, TargetNullValue='-Не задано-'}" />
+                <controls:SVGDoubleTextControl Drawing="{DynamicResource Mail}"
+                                               Margin="20,0,0,10"
+                                               UpperText="Електронна пошта"
+                                               DownText="{Binding Patient.Mail, TargetNullValue='-Не задано-'}" />
+                <controls:SVGDoubleTextControl Drawing="{DynamicResource Doctor}"
+                                               Margin="20,0,0,10"
+                                               UpperText="Лікар"
+                                               DownText="{Binding CurrentUserDoctorFullName, Mode=OneWay, TargetNullValue='-Не задано-'}" />
+
+            </StackPanel>
+            <!--<StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Orientation="Vertical" Grid.Column="1" >
+                    <coloredbuttons:SVGButton Drawing="{DynamicResource Edit}"
+                                              Background="#03C0CC"
+                                              ColorShiftBrush="White"
+                                              Width="45"
+                                              Height="45"
+                                              CornerRadius="6"
+                                              BorderThickness="0"
+                                              SVGMargin="0"
+                                              SVGHeight="30"
+                                              SVGWidth="30"/>
+                </StackPanel>-->
+        </Grid>
+    </Border>
+    
+</UserControl>

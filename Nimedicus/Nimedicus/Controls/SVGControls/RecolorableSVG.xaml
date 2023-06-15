@@ -1,0 +1,32 @@
+﻿<recolorableImages:BaseRecolorableImage x:Class="Nimedicus.Controls.SVGControls.RecolorableSVG"
+                                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                        xmlns:converters="clr-namespace:Nimedicus.Utils.Converters"
+                                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                        xmlns:recolorableImages="clr-namespace:Nimedicus.Controls.SVGControls"
+                                        d:DesignHeight="300"
+                                        d:DesignWidth="300"
+                                        AutomationProperties.Name="RecolorableSVGimg"
+                                        mc:Ignorable="d">
+
+    <recolorableImages:BaseRecolorableImage.Template>
+        <ControlTemplate TargetType="recolorableImages:RecolorableSVG">
+            <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                  VerticalAlignment="{TemplateBinding VerticalAlignment}">
+
+                <Image x:Name="img"
+                       Width="{TemplateBinding Width}"
+                       Height="{TemplateBinding Height}"
+                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                       AutomationProperties.AutomationId="{Binding Drawing, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:RecolorableSVGDrawingIdResolveConverter}, Mode=OneWay}"
+                       AutomationProperties.Name="RecolorableSVGimg" />
+
+                <!--  Stretch="{Binding Stretch, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=None}"  -->
+
+            </Grid>
+        </ControlTemplate>
+    </recolorableImages:BaseRecolorableImage.Template>
+
+</recolorableImages:BaseRecolorableImage>

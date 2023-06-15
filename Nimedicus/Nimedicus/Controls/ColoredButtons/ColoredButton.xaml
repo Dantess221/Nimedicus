@@ -1,0 +1,190 @@
+﻿<local:BaseColoredButton x:Class="Nimedicus.Controls.ColoredButtons.ColoredButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Nimedicus.Controls.ColoredButtons"
+             xmlns:controls="clr-namespace:Nimedicus.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <local:BaseColoredButton.Template>
+        <ControlTemplate TargetType="{x:Type local:ColoredButton}">
+
+            <Border Name="Border"
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+
+                <ContentControl Name="Container"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                Foreground="{TemplateBinding Foreground}">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ContentPresenter Name="Content"
+                                          Grid.Column="1"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RecognizesAccessKey="True" />
+
+                    </Grid>
+
+                </ContentControl>
+
+            </Border>
+
+            <ControlTemplate.Triggers>
+
+                <Trigger Property="IsEnabled"
+                         Value="false">
+                    <Setter Property="Foreground"
+                            Value="#858585" />
+                </Trigger>
+
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsHighlightedOnKeyboardFocus"
+                                   Value="True" />
+                        <Condition Property="IsKeyboardFocused"
+                                   Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="IsHighlighted"
+                            Value="True" />
+                </MultiTrigger>
+
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOverHiglightEnabled"
+                                   Value="True" />
+                        <Condition Property="IsMouseOver"
+                                   Value="True" />
+                    </MultiTrigger.Conditions>
+                    <!--<Setter TargetName="Border" Property="Background" Value="{Binding HighlightedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border" Property="BorderBrush" Value="{Binding HighlightedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container" Property="Foreground" Value="{Binding HighlightedForeground, RelativeSource={RelativeSource TemplatedParent}}" />-->
+                    <Setter Property="IsHighlighted"
+                            Value="True" />
+                </MultiTrigger>
+
+                <Trigger Property="IsHighlighted"
+                         Value="True">
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{Binding HighlightedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{Binding HighlightedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container"
+                            Property="Foreground"
+                            Value="{Binding HighlightedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Trigger>
+
+                <Trigger Property="IsPressed"
+                         Value="True">
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{Binding PressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{Binding PressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container"
+                            Property="Foreground"
+                            Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Trigger>
+
+                <Trigger Property="IsTriggered"
+                         Value="True">
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{Binding TriggeredBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{Binding TriggeredBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container"
+                            Property="Foreground"
+                            Value="{Binding TriggeredForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Trigger>
+
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsTriggered"
+                                   Value="True" />
+                        <Condition Property="IsHighlighted"
+                                   Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{Binding TriggeredHighlightedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{Binding TriggeredHighlightedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container"
+                            Property="Foreground"
+                            Value="{Binding TriggeredHighlightedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </MultiTrigger>
+
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsTriggered"
+                                   Value="True" />
+                        <Condition Property="IsPressed"
+                                   Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{Binding TriggeredPressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{Binding TriggeredPressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container"
+                            Property="Foreground"
+                            Value="{Binding TriggeredPressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </MultiTrigger>
+
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{Binding DisabledBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{Binding DisabledBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container"
+                            Property="Foreground"
+                            Value="{Binding DisabledForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Trigger>
+
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsTriggered"
+                                   Value="True" />
+                        <Condition Property="IsEnabled"
+                                   Value="False" />
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{Binding TriggeredDisabledBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{Binding TriggeredDisabledBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter TargetName="Container"
+                            Property="Foreground"
+                            Value="{Binding TriggeredDisabledForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </MultiTrigger>
+
+            </ControlTemplate.Triggers>
+
+        </ControlTemplate>
+    </local:BaseColoredButton.Template>
+</local:BaseColoredButton>
